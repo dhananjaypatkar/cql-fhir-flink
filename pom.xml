@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.pointone</groupId>
+	<artifactId>cql.fhir.flink</artifactId>
+	<version>0.1</version>
+
+	<properties>
+		<flink.version>1.17.1</flink.version>
+		<hapi.version>6.6.1</hapi.version>
+		<cql-evaluator.version>2.6.0</cql-evaluator.version>
+		<cql-translator.version>1.5.6</cql-translator.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-java</artifactId>
+			<version>${flink.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-test-utils</artifactId>
+			<version>${flink.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-connector-files</artifactId>
+			<version>${flink.version}</version>
+		</dependency>
+		<!-- CQL Evaluator -->
+		<dependency>
+			<groupId>org.opencds.cqf.cql</groupId>
+			<artifactId>evaluator</artifactId>
+			<version>${cql-evaluator.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.opencds.cqf.cql</groupId>
+			<artifactId>evaluator.fhir</artifactId>
+			<version>${cql-evaluator.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.opencds.cqf.cql</groupId>
+			<artifactId>evaluator.builder</artifactId>
+			<version>${cql-evaluator.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.opencds.cqf.cql</groupId>
+			<artifactId>evaluator.jackson-deps</artifactId>
+			<version>${cql-evaluator.version}</version>
+			<type>pom</type>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>11</source>
+					<target>11</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
